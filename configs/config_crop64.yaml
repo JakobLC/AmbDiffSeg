@@ -1,0 +1,61 @@
+training:
+  max_iter: 400000
+  vali_interval: 1000
+  vali_batches: 16
+  save_interval: 5000
+  batch_size: 8
+
+  seed: 0
+  lr: 0.0001
+  lr_warmup_steps: 1000
+  lr_decay_steps: 100000
+  use_fp16: true
+  fp16_scale_growth: 0.001
+  clip_grad_norm: 1.0
+  dl_num_workers: 4
+  loss_weights: SNR_plus1
+  decouple_loss_weights: false
+  betas: [0.9, 0.999]
+  weight_decay: 0.01
+  data_folder: /home/jloch/Desktop/diff/amb_diff_seg/amb_diff_seg_repo/data
+  save_path: saves_training/crop64.pt
+  save_losses: true
+
+unet:
+  random_crop64: True
+  num_res_blocks: [1,2,3,4]
+  num_channels: 32
+  num_middle_res_blocks: 4
+  attention_resolutions: [-1]
+
+  channel_mult: [1,1,2,4]
+  num_heads: 4
+  num_heads_upsample: -1
+  final_act: tanh_if_x
+  predict: x
+
+  use_gen_prob_unet: False
+
+  dropout: 0.0
+  one_skip_per_reso: False
+  new_upsample_method: False
+  mlp_attn: False
+  identity_init: False
+
+diffusion:
+  noise_schedule: cosine
+  input_scale: 0.1
+  var_type: large
+
+sampling:
+  seed: 0
+  num_samples: -1
+  num_preds_per_sample: 4
+  clip_denoised: true
+  num_timesteps: 10
+  sampler_type: ddpm
+  split: test
+  save_samples_filename: "saves_evaluation/crop64_eval.pt" 
+  tqdm_bar: true
+  load_ckpt: "saves_training/crop64.pt"
+  
