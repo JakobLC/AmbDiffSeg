@@ -1,6 +1,6 @@
 # Diffusion Based Ambiguous Image Segmentation
 
-The official repository for the paper "Diffusion Based Ambiguous Image Segmentation". This repository contains the code and model checkpoints to reproduce the central results of the paper. The main functionalities of the code are:
+The official repository for the paper "Diffusion Based Ambiguous Image Segmentation" [[Arxiv Link]](https://arxiv.org/pdf/2504.05977). This repository contains the code and model checkpoints to reproduce the central results of the paper. The main functionalities of the code are:
 
 - **Training with train.py**: Train the diffusion model from scratch.
 - **Evaluation with evaluate.py**: Evaluate a saved diffusion model or checkpoint on the data.
@@ -23,7 +23,7 @@ We include training and evaluation setups for our best performing models, in bot
 ```bash
 python src/amb_diff_seg/train.py configs/config_default.yaml
 ```
-and similarly, to evaluate run
+and similarly, to evaluate
 ```bash
 python src/amb_diff_seg/evaluate.py configs/config_default.yaml
 ```
@@ -33,10 +33,6 @@ You can change any config arguments in the command line. If you want to train a 
 python src/amb_diff_seg/train.py configs/config_default.yaml training.lr=1e-3
 ```
 
-After training a model, you can evaluate it with
-```bash
-python src/amb_diff_seg/evaluate.py configs/config_default.yaml
-```
 ## Evaluation With Our Checkpoints
 You can also specify our checkpoints and evaluate these. We supply our best checkpoints in the `checkpoints` folder for both the default 128x128 setting and random cropping 64x64 setting. To evaluate these from our checkpoints, run:
 ```bash

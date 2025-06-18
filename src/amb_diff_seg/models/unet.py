@@ -1,17 +1,17 @@
-from torch import nn
+import math
 import torch
-from abc import abstractmethod
+
 import torch.nn.functional as F
 import numpy as np
+from abc import abstractmethod
+from torch import nn
 from omegaconf import OmegaConf
-import math
-import copy
+
 from models.nn import (SiLU,conv_nd,linear,avg_pool_nd,zero_module,normalization,
                               timestep_embedding,checkpoint,identity_module,total_model_norm)
 from models.fp16 import (convert_module_to_f16,
                                          convert_module_to_f32)
 from models.gen_prob_unet import GenProbUNet
-
 
 class UNetModel(nn.Module):
     """

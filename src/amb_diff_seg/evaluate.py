@@ -1,14 +1,16 @@
+import sys, os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 import torch
-from data import get_data
 import numpy as np
+import tqdm
+
+from data import get_data
 from diffusion import create_diffusion_from_args
 from collections import defaultdict
 from models.unet import create_unet_from_args
-from omegaconf import OmegaConf
-import tqdm
-from utils import (set_random_seed, get_ambiguous_metrics)
-import argparse
-from utils import load_config
+from utils import (set_random_seed, get_ambiguous_metrics, load_config)
+
 
 class DiffusionEvaluator():
     def __init__(self, args, model, device):

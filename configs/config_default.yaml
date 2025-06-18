@@ -17,7 +17,7 @@ training:
   decouple_loss_weights: false
   betas: [0.9, 0.999]
   weight_decay: 0.01
-  data_folder: /home/jloch/Desktop/diff/amb_diff_seg/amb_diff_seg_repo/data
+  data_folder: data
   save_path: saves_training/default.pt
   save_losses: true
 

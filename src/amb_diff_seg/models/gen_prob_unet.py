@@ -1,11 +1,6 @@
-import torch.nn.functional as F
-import pdb
 import math
 import torch
 import torch.nn as nn
-from torch.autograd import Variable
-import numpy as np
-import pdb
 
 def convert_module_to_f16(l):
     if isinstance(l, (nn.Conv1d, nn.Conv2d, nn.Conv3d, nn.Linear)):
